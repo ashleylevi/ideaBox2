@@ -15,10 +15,10 @@ class Idea {
     var ideas = JSON.parse(localStorage.getItem('ideas'));
 
     if (!ideas) {
-      ideas = []
+      ideas = [];
     }
 
-    ideas.push(this)
+    ideas.push(this);
 
     localStorage.setItem('ideas', JSON.stringify(ideas));
   }
@@ -27,9 +27,7 @@ class Idea {
     var ideas = JSON.parse(localStorage.getItem('ideas'));
 
     if (ideas) {
-      ideas = ideas.filter((idea) => {
-        return idea.id !== ideaId;
-      })
+      ideas = ideas.filter((idea) => idea.id !== ideaId);
 
       localStorage.setItem('ideas', JSON.stringify(ideas));
     }
@@ -38,10 +36,7 @@ class Idea {
   static updateIdea(ideaId) {
     var ideas = JSON.parse(localStorage.getItem('ideas'));
 
-    var index = ideas.findIndex((idea) => {
-      console.log('idea id in storage', idea.id)
-      return idea.id == ideaId
-    });
+    var index = ideas.findIndex((idea) => idea.id == ideaId);
 
     ideas[index].star = !ideas[index].star;
 
